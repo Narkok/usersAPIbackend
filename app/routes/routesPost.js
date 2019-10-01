@@ -2,7 +2,7 @@ const User   = require('./../userModel.js').User
 const config = require('./../../config')
 
 /// POST запрос на добавление нового пользователя
-function usersPost(database, req, res) {
+module.exports = function usersPost(database, req, res) {
 
     /// Генерация пользователя по телу запроса
     const user = new User(req.body)
@@ -14,5 +14,3 @@ function usersPost(database, req, res) {
             else { res.send(result.ops[0]) }
         })
 }
-
-module.exports = usersPost

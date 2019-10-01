@@ -1,12 +1,11 @@
 const ObjectID = require('mongodb').ObjectID
-const config = require('./../../config')
+const config   = require('./../../config')
 
 /// DELETE запрос на удаление пользователя по ID
-function deleteUserByID(database, req, res) {
+module.exports = function usersDeleteByID(database, req, res) {
 
     /// ID для поиска в БД
-    const id = req.params.id
-    const details = { '_id': new ObjectID(id) }
+    const details = { '_id': new ObjectID(req.params.id) }
 
     /// Удалить пользователя в БД по ID
     database.collection(config.collectionName)
@@ -15,5 +14,3 @@ function deleteUserByID(database, req, res) {
             else { res.send('User with ID ' + id + ' was deleted!') }
         })
 }
-
-module.exports = deleteUserByID

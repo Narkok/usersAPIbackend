@@ -1,12 +1,11 @@
 const ObjectID = require('mongodb').ObjectID
-const config = require('./../../config')
+const config   = require('./../../config')
 
 /// GET запрос по ID для получения пользователя
-function usersGetByID(database, req, res) {
+module.exports = function usersGetByID(database, req, res) {
 
     /// ID для поиска в БД
-    const id = req.params.id
-    const details = { '_id': new ObjectID(id) }
+    const details = { '_id': new ObjectID(req.params.id) }
 
     /// Найти пользователя в БД по ID и отправить
     database.collection(config.collectionName)
@@ -15,5 +14,3 @@ function usersGetByID(database, req, res) {
             else { res.send(item) }
         })
 }
-
-module.exports = usersGetByID
