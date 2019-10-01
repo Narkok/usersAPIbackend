@@ -1,5 +1,6 @@
 const usersPost = require('./usersPost')
 const usersGetByID = require('./usersGetByID')
+const deleteUserByID = require('./deleteUserByID')
 
 /// Обработка запроса
 module.exports = function(app, database) {
@@ -8,4 +9,7 @@ module.exports = function(app, database) {
 
 	/// GET запрос по ID для получения пользователя
 	app.get('/users/:id', (req, res) => { usersGetByID(database, req, res) })
+
+	/// DELETE запрос на удаление пользователя по ID
+	app.delete('/users/:id', (req, res) => { deleteUserByID(database, req, res) })
 }

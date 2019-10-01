@@ -1,7 +1,7 @@
 const express        = require('express')
 const MongoClient    = require('mongodb').MongoClient
 const bodyParser     = require('body-parser')
-const config         = require('./config/config')
+const config         = require('./config')
 const app            = express()
 
 // Порт прослушивания
