@@ -1,13 +1,13 @@
-const express        = require('express');
-const MongoClient    = require('mongodb').MongoClient;
-const bodyParser     = require('body-parser');
-const config         = require('./config/config');
-const app            = express();
+const express        = require('express')
+const MongoClient    = require('mongodb').MongoClient
+const bodyParser     = require('body-parser')
+const config         = require('./config/config')
+const app            = express()
 
 // Порт прослушивания
-const port = 8000;
+const port = 8000
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
 
 /// Запуск сервера
 MongoClient.connect(config.url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
@@ -15,6 +15,6 @@ MongoClient.connect(config.url, { useNewUrlParser: true, useUnifiedTopology: tru
     /// База данных
     var database = client.db(config.dbName)
     /// Обработка запросов
-    require('./app/routes')(app, database);
-    app.listen(port, () => { console.log('We are live on ' + port); });
+    require('./app/routes')(app, database)
+    app.listen(port, () => { console.log('We are live on ' + port); })
 })

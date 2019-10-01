@@ -1,5 +1,11 @@
-const userRoutes = require('./userRoutes');
+const usersPost = require('./usersPost')
+const usersGetByID = require('./usersGetByID')
 
-module.exports = function(app, db) {
-	userRoutes(app, db);
-};
+/// Обработка запроса
+module.exports = function(app, database) {
+	/// POST запрос на добавление нового пользователя
+	app.post('/users', (req, res) => { usersPost(database, req, res) })
+
+	/// GET запрос по ID для получения пользователя
+	app.get('/users/:id', (req, res) => { usersGetByID(database, req, res) })
+}
