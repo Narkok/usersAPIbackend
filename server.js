@@ -5,9 +5,6 @@ const config         = require('./config')
 const router         = require('./app/routes')
 const app            = express()
 
-/// Порт прослушивания
-const port = 8000
-
 app.use(bodyParser.urlencoded({ extended: true }))
 
 /// Подключение к БД
@@ -21,5 +18,5 @@ MongoClient.connect(config.url, { useNewUrlParser: true, useUnifiedTopology: tru
     router(app, database)
 
     /// Прослушивание порта
-    app.listen(port, () => { console.log('We are live on ' + port); })
+    app.listen(config.port, () => { console.log('We are live on ' + config.port); })
 })

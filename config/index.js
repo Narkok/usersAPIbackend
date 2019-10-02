@@ -6,5 +6,8 @@ module.exports = {
     dbName : "nrkkdb",
 
     /// Название коллекции с пользователями
-    collectionName : "users"
+    collectionName : "users",
+
+    /// Порт прослушивания
+    port: 8000
 }
