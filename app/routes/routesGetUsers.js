@@ -1,4 +1,4 @@
-const config   = require('./../../config')
+const config = require('./../config')
 
 /// GET запрос для получения всех пользователей
 module.exports = function getUsers(database, req, res) {

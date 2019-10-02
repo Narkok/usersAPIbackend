@@ -1,5 +1,5 @@
 const User   = require('./../userModel.js').User
-const config = require('./../../config')
+const config = require('./../config')
 
 /// POST запрос на добавление нового пользователя
 module.exports = function usersPost(database, req, res) {

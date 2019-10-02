@@ -1,6 +1,6 @@
 const User     = require('./../userModel.js').User
 const ObjectID = require('mongodb').ObjectID
-const config   = require('./../../config')
+const config   = require('./../config')
 
 /// PUT запрос по ID для обновления пользователя
 module.exports = function usersPutByID(database, req, res) {

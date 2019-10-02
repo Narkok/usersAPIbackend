@@ -1,5 +1,5 @@
 const ObjectID = require('mongodb').ObjectID
-const config   = require('./../../config')
+const config   = require('./../config')
 
 /// DELETE запрос на удаление пользователя по ID
 module.exports = function usersDeleteByID(database, req, res) {

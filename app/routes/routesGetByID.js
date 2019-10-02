@@ -1,5 +1,5 @@
 const ObjectID = require('mongodb').ObjectID
-const config   = require('./../../config')
+const config = require('./../config')
 
 /// GET запрос по ID для получения пользователя
 module.exports = function usersGetByID(database, req, res) {
