@@ -1,13 +1,11 @@
 const express        = require('express')
 const MongoClient    = require('mongodb').MongoClient
 const bodyParser     = require('body-parser')
-const Config         = require('./app/config').Config
+const config         = require('./app/config')
 const router         = require('./app/routes')
 const app            = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
-
-const config = new Config()
 
 /// Подключение к БД
 MongoClient.connect(config.url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {

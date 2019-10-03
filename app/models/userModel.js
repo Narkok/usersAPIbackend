@@ -4,6 +4,8 @@ module.exports.User = class User {
         this.name = data.name
         this.email = data.email
         this.avatarURL = data.avatarURL
-        this.updatedAt = new Date()
+        const date = new Date()
+        this.updatedAt = date
+        this.createdAt = date
     }
 }

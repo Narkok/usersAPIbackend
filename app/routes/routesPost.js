@@ -1,4 +1,4 @@
-const User   = require('./../userModel.js').User
+const Error  = require('./../models').Error
 const config = require('./../config')
 
 /// POST запрос на добавление нового пользователя
@@ -9,8 +9,5 @@ module.exports = function usersPost(database, req, res) {
 
     /// Запихать в базу данных нового пользователя
     database.collection(config.collectionName)
-        .insertOne(user, (err, result) => {
-            if (err) { res.send({ 'error': 'An error has occurred' }) }
-            else { res.send(result.ops[0]) }
-        })
+        .insertOne(user, (err, result) => { res.send(err ? new Error() : result.ops[0]) })
 }

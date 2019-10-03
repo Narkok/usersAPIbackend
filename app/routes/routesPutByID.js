@@ -1,4 +1,4 @@
-const User     = require('./../userModel.js').User
+const model   = require('./../models')
 const ObjectID = require('mongodb').ObjectID
 const config   = require('./../config')
 
@@ -9,12 +9,9 @@ module.exports = function usersPutByID(database, req, res) {
     const details = { '_id': new ObjectID(req.params.id) }
 
     /// Обновленный пользователь
-    const user = new User(req.body)
+    const user = new model.User(req.body)
 
     /// Обновление пользователя в БД по ID
     database.collection(config.collectionName)
-        .update(details, user, (err, item) => {
-            if (err) { res.send({ 'error': 'An error has occurred' }) }
-            else { res.send(user) }
-        })
+        .update(details, user, (err, item) => { res.send(err ? new model.Error() : users) })
 }

@@ -1,5 +1,6 @@
 const ObjectID = require('mongodb').ObjectID
-const config = require('./../config')
+const config   = require('./../config')
+const Error    = require('./../models').Error
 
 /// GET запрос по ID для получения пользователя
 module.exports = function usersGetByID(database, req, res) {
@@ -9,8 +10,5 @@ module.exports = function usersGetByID(database, req, res) {
 
     /// Найти пользователя в БД по ID и отправить
     database.collection(config.collectionName)
-        .findOne(details, (err, item) => {
-            if (err) { res.send({ 'error': 'An error has occurred' }) }
-            else { res.send(item) }
-        })
+        .findOne(details, (err, user) => { res.send(err ? new Error() : user) })
 }
