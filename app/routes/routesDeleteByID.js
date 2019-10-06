@@ -1,16 +1,17 @@
-const ObjectID = require('mongodb').ObjectID
-const config   = require('./../config')
-const Error    = require('./../models').Error
+const ObjectID = require('mongodb').ObjectID;
+const config   = require('./../config');
+const Error    = require('./../models').Error;
 
 /// DELETE запрос на удаление пользователя по ID
 module.exports = function usersDeleteByID(database, req, res) {
+    console.log("DELETE: /users/:id");
 
     /// ID для поиска в БД
-    const details = { '_id': new ObjectID(req.params.id) }
+    const details = { '_id': new ObjectID(req.params.id) };
 
     console.log(config.collectionName);
 
     /// Удалить пользователя в БД по ID
     database.collection(config.collectionName)
-        .deleteOne(details, (err, item) => { res.send(err ? new Error() : "OK") })
+        .deleteOne(details, (err, item) => { res.send(err ? new Error() : "User deleted") })
 }
