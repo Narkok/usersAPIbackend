@@ -9,9 +9,7 @@ class Config {
         const password  = readlineSync.question('password: ');
 
         /// Адрес БД
-        // this.url = 'mongodb+srv://' + 'admin' + ':' + 'admin' + '@cluster0-wlutl.mongodb.net/nrkkdb?retryWrites=true&w=majority';
         this.url = "mongodb+srv://" + login + ":" + password + "@cluster0-wlutl.mongodb.net/nrkkdb?retryWrites=true&w=majority"
-        console.log({"mongodbURL": this.url});
 
         /// Название БД
         this.dbName = 'nrkkdb';
