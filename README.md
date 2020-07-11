@@ -2,5 +2,7 @@
 
 
 git clone https://github.com/Narkok/usersAPIbackend.git
+
 npm install
+
 node server.js
