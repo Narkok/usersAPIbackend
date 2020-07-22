@@ -1,8 +1,11 @@
 ## Приложение на Node.js для управления списком пользователей
 
+### Запуск
 
-git clone https://github.com/Narkok/usersAPIbackend.git
+1. git clone https://github.com/Narkok/usersAPIbackend.git
 
-npm install
+2. Прописать параметры в app/serverConfig.js
 
-node server.js
+3. npm install
+
+4. npn start
